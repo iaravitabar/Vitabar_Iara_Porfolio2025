@@ -1,0 +1,65 @@
+UNIDAD TEMÁTICA 1: Introducción a JAVA
+PRACTICOS DOMICILIARIOS INDIVIDUALES #7
+EJERCICIO #1
+	Observa el siguiente código:
+		String s = "1";
+		while (s != "1000") {
+			s += "0";
+		}
+El mismo representa un bucle infinito ya que la comparación con el operador == entre el objeto s y el
+literal “1000” jamás devuelve True.
+● ¿Por qué esto es así? ¿Qué diferencia representa con otros lenguajes como C#?
+	En java el operador "==" se utiliza para co´parar si las dos referencias apuntan al mismo objeto en la memoria
+	no si el contenido del objeto es el mismo. En C#, con el operador "==" se compara el contenido de las cadenas y
+	no las referencias del objeto.
+
+
+EJERCICIO #2
+Observa los siguientes fragmentos de código:
+1.
+	String s1 = "Hola";
+	String s2 = "Hola";
+	if ( s1 == s2 ) {
+		System.out.println( "True" );
+	} else {
+		System.out.println( "False" );
+	}
+2.
+	String s1 = new String("Hola");
+	String s2 = "Hola";
+	if ( s1 == s2 ) {
+		System.out.println( "True" );
+	} else {
+		System.out.println( "False" );
+	}
+● ¿Qué sentencia se ejecuta como resultado del If en cada caso y por qué? Busca en internet
+referencias que te permitan explicar las respuestas a las preguntas anteriores. Asegúrate que
+las mismas sean autoritativas y cítalas adecuadamente en tu respuesta.
+	En el primer fragmento de código se ejecuta la sentencia "True".
+	s1 y s2 apuntan a la misma rederencia en el pool de cadenas.
+	En el segundo caso se ejecuta la sencia "False".
+	En s1 se crera una nueva instancia de "String" en el Heap y s2 usando 
+	cadena literal, por eso devuelve faso, apuntan lugares distintos de "String" en la memoria.
+
+-Fuentes:
+	Oracle Java Tutorials: String Pool (https://docs.oracle.com/javase/tutorial/java/data/strings.html)
+	Baeldung: Java String Pool (https://www.baeldung.com/java-string-pool)
+
+● Propone una versión correcta del código del Ejercicio #1.
+Ayuda: investiga cómo funciona el método intern() de la clase String.
+	
+	metodo intern(): internar manualmente una cadena en el pool de cadenas de java
+			intern, almacena su referencia en el pool.
+
+	public class prueba {
+		public static void main (String[] args){
+			String s1 = "Hola";
+			String s2 = "Hola;
+			s1 =s1.intern();
+			if (s1 == s2){
+				System.out.println("True");
+			}else{
+				System.out.println("False");
+			}
+		}
+	}
