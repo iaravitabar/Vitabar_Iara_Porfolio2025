@@ -1,6 +1,5 @@
 # Vitabar_Iara_Porfolio2025
 #UT1
-#UT2
 #UT3
 #UT4
 #UT5
